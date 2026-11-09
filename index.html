@@ -3,176 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhận thưởng iPhone</title>
-
+    <title>Cảnh Báo Phishing</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #dbeafe, #eff6ff);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0c10;
         }
-
-        .container {
-            background: white;
-            width: 100%;
-            max-width: 430px;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        /* Phủ bóng hiệu ứng nền & khung cảnh báo */
+        .phishing-card {
+            background-color: #2a080c;
+            border: 2px solid #ef4444;
+            box-shadow: 0 0 30px rgba(239, 68, 68, 0.25);
         }
-
-        h1 {
-            color: #2563eb;
-            text-align: center;
-            font-size: 25px;
-        }
-
-        .description {
-            text-align: center;
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .warning {
-            background: #fff7ed;
-            color: #c2410c;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 13px;
-            line-height: 1.5;
-            margin: 18px 0;
-        }
-
-        label {
-            display: block;
-            font-weight: bold;
-            margin: 14px 0 7px;
-        }
-
-        input {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 15px;
-        }
-
-        button {
-            width: 100%;
-            padding: 14px;
-            margin-top: 22px;
-            background: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #1d4ed8;
-        }
-
-        #error {
-            color: red;
-            text-align: center;
-            font-size: 14px;
-            margin-top: 15px;
-            font-weight: bold;
-        }
-
-        #final {
-            display: none;
-            text-align: center;
-            color: red;
-            font-size: 28px;
-            font-weight: bold;
-            line-height: 1.5;
-        }
-
-        #final p {
-            font-size: 16px;
-            color: #333;
-            font-weight: normal;
+        .inner-box {
+            background-color: #3b0a11;
+            border: 1px solid rgba(239, 68, 68, 0.4);
         }
     </style>
 </head>
+<body class="min-h-screen flex items-center justify-center p-4">
 
-<body>
+    <!-- Card cảnh báo chính -->
+    <div class="phishing-card w-full max-w-2xl rounded-3xl p-6 sm:p-10 text-white transition-all duration-300">
+        
+        <!-- Header: Icon + Tiêu đề -->
+        <div class="flex items-start gap-4 sm:gap-6 mb-6">
+            <!-- Icon cảnh báo hình vuông đỏ rounded -->
+            <div class="flex-shrink-0 bg-red-600 rounded-2xl p-4 sm:p-5 flex items-center justify-center shadow-lg shadow-red-600/30">
+                <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                </svg>
+            </div>
 
-<div class="container" id="main">
+            <!-- Nội dung phần tiêu đề -->
+            <div class="flex-1">
+                <h1 class="text-2xl sm:text-4xl font-extrabold text-[#ff4d6d] tracking-tight leading-tight uppercase mb-2">
+                    CẢNH BÁO: BẠN VỪA SẬP BẪY PHISHING!
+                </h1>
+                <p class="text-gray-200 text-sm sm:text-base font-medium">
+                    Hệ thống ghi nhận hành vi mắc bẫy số trong <span class="font-bold">0.5 giây</span>
+                </p>
+            </div>
+        </div>
 
-    <h1>🎉 CHÚC MỪNG BẠN!</h1>
+        <!-- Đường gạch ngang phân cách -->
+        <hr class="border-t border-red-900/60 my-6">
 
-    <p class="description">
-        Chúc mừng bạn đã nhận được điện thoại
-        <b>iPhone 18 Pro Max</b>!
-        <br><br>
-        Hãy nhập một số thông tin bên dưới để xác nhận.
-    </p>
+        <!-- Nội dung phụ bên trong (Inner Box) -->
+        <div class="inner-box rounded-2xl p-5 sm:p-7">
+            <!-- Dòng tiêu đề màu vàng kèm Icon lá chắn -->
+            <div class="flex items-start gap-3 mb-4">
+                <div class="flex-shrink-0 mt-1">
+                    <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h2 class="text-yellow-400 font-extrabold text-lg sm:text-xl leading-snug">
+                    Toàn bộ mật khẩu và mã OTP của bạn đã bị chiếm đoạt trong 0.5 giây!
+                </h2>
+            </div>
 
+            <!-- Danh sách chi tiết các dấu hiệu -->
+            <ul class="list-disc list-inside space-y-2.5 text-gray-100 text-sm sm:text-base pl-1 sm:pl-2">
+                <li class="leading-relaxed">
+                    <span class="font-medium">Dấu hiệu lừa đảo:</span> Đánh vào lòng tham <span class="font-semibold text-white">(Voucher 300k)</span>.
+                </li>
+                <li class="leading-relaxed">
+                    <span class="font-medium">Tạo áp lực khẩn cấp:</span> Ép thời gian đếm ngược 60 giây.
+                </li>
+                <li class="leading-relaxed">
+                    <span class="font-medium">Giả mạo thương hiệu:</span> Sử dụng tên tuổi uy tín của <strong class="font-bold text-white">Trường THPT Phạm Hồng Thái</strong>.
+                </li>
+            </ul>
+        </div>
 
-    <form id="demoForm">
-
-        <label>Số điện thoại</label>
-        <input type="text" >
-
-        <label>Số CCCD</label>
-        <input type="text">
-
-        <label>Tên tài khoản ngân hàng</label>
-        <input type="text">
-
-        <label>Mật khẩu</label>
-        <input type="password" >
-
-        <button type="submit">Tiếp tục</button>
-
-        <div id="error"></div>
-
-    </form>
-</div>
-
-<div id="final">
-    BẠN ĐÃ MẤT HẾT THÔNG TIN VÀ DỮ LIỆU CÁ NHÂN!
-
-    <p>
-        Đây là tình huống mô phỏng một hình thức
-        lừa đảo trực tuyến (Phishing).
-        <br><br>
-        Không nên tin vào những thông báo trúng thưởng
-        không rõ nguồn gốc.
-        <br><br>
-        Tuyệt đối không cung cấp CCCD, mật khẩu
-        hay thông tin ngân hàng trên website lạ.
-    </p>
-</div>
-
-<script>
-    const form = document.getElementById("demoForm");
-
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        document.getElementById("error").innerText =
-            "Lỗi! Không thể xác nhận thông tin. Vui lòng thử lại.";
-
-        setTimeout(function() {
-            document.getElementById("main").style.display = "none";
-            document.getElementById("final").style.display = "block";
-        }, 3000);
-    });
-</script>
+    </div>
 
 </body>
 </html>
