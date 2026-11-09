@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhận thưởng iPhone</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            width: 100%;
+            max-width: 430px;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+        }
+
+        h1 {
+            color: #2563eb;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .description {
+            text-align: center;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .warning {
+            background: #fff7ed;
+            color: #c2410c;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 13px;
+            line-height: 1.5;
+            margin: 18px 0;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 14px 0 7px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 22px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        #error {
+            color: red;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        #final {
+            display: none;
+            text-align: center;
+            color: red;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        #final p {
+            font-size: 16px;
+            color: #333;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+
+    <h1>🎉 CHÚC MỪNG BẠN!</h1>
+
+    <p class="description">
+        Chúc mừng bạn đã nhận được điện thoại
+        <b>iPhone 18 Pro Max</b>!
+        <br><br>
+        Hãy nhập một số thông tin bên dưới để xác nhận.
+    </p>
+
+
+    <form id="demoForm">
+
+        <label>Số điện thoại</label>
+        <input type="text" >
+
+        <label>Số CCCD</label>
+        <input type="text">
+
+        <label>Tên tài khoản ngân hàng</label>
+        <input type="text">
+
+        <label>Mật khẩu</label>
+        <input type="password" >
+
+        <button type="submit">Tiếp tục</button>
+
+        <div id="error"></div>
+
+    </form>
+</div>
+
+<div id="final">
+    BẠN ĐÃ MẤT HẾT THÔNG TIN VÀ DỮ LIỆU CÁ NHÂN!
+
+    <p>
+        Đây là tình huống mô phỏng một hình thức
+        lừa đảo trực tuyến (Phishing).
+        <br><br>
+        Không nên tin vào những thông báo trúng thưởng
+        không rõ nguồn gốc.
+        <br><br>
+        Tuyệt đối không cung cấp CCCD, mật khẩu
+        hay thông tin ngân hàng trên website lạ.
+    </p>
+</div>
+
+<script>
+    const form = document.getElementById("demoForm");
+
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("error").innerText =
+            "Lỗi! Không thể xác nhận thông tin. Vui lòng thử lại.";
+
+        setTimeout(function() {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("final").style.display = "block";
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>
